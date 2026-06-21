@@ -2,7 +2,8 @@
   const host = window.location.hostname;
   const isLocal = ["localhost", "127.0.0.1", ""].includes(host);
 
-  const productionApiRoot = "https://medical-backend.onrender.com";
+  const productionApiRoot =
+  "https://medical-backend-su2o.onrender.com";
   const localApiRoot = "http://127.0.0.1:8000";
 
   window.APP_CONFIG = {
