@@ -8,7 +8,7 @@
 
   window.APP_CONFIG = {
     ...(window.APP_CONFIG || {}),
-    API_ROOT: isLocal ? localApiRoot : productionApiRoot,
+    API_ROOT: "https://medical-backend-su2o.onrender.com",
     AI_SKIN_APP_URL: isLocal ? "http://localhost:3000" : "",
     AI_DERMATOLOGY_APP_URL: isLocal ? "http://localhost:5173" : "",
   };
