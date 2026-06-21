@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: medical-backend
+    env: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    disk:
+      name: medical-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: DATA_DIR
+        value: /var/data
+      - key: UPLOAD_DIR
+        value: /var/data/uploads
+      - key: PUBLIC_API_URL
+        value: https://medical-backend.onrender.com
+      - key: CORS_ORIGINS
+        value: http://localhost:5500,http://127.0.0.1:5500,https://medical-frontend.vercel.app
+      - key: CORS_ORIGIN_REGEX
+        value: https://.*\.vercel\.app
+      - key: JWT_SECRET
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: JWT_TTL_SECONDS
+        value: "28800"
+      - key: MAX_UPLOAD_SIZE
+        value: "5242880"
+      - key: RATE_LIMIT_MAX
+        value: "120"

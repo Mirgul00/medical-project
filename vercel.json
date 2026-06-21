@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/assets/js/config.js",
+      "headers": {
+        "Cache-Control": "no-store"
+      },
+      "dest": "/frontend/assets/js/config.js"
+    },
+    {
+      "src": "/services/?",
+      "dest": "/frontend/services/index.html"
+    },
+    {
+      "src": "/",
+      "dest": "/frontend/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/$1"
+    }
+  ]
+}
