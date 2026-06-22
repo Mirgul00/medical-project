@@ -38,26 +38,46 @@
       </nav>
     </header>
 
-    <main class="ai-page ai-page--derma">
+    <main class="ai-page ai-page--derma" data-ai-mode="disease">
       <section class="ai-page__section section">
         <div class="ai-page__container container">
           <div class="ai-page__copy">
-            <span>AI dermatology check</span>
-            <h1>AI дерматологический анализ</h1>
-            <p>Загрузите фото зоны, которая вызывает вопрос. Интерфейс поможет подготовить обращение, а медицинское заключение даёт только специалист.</p>
+            <span>AI Skin Disease Detection</span>
+            <h1>AI оценка возможных кожных состояний</h1>
+            <p>Загрузите фото проблемной зоны. Инструмент покажет вероятные состояния и поможет понять, когда стоит обратиться к дерматологу.</p>
+            <div class="ai-page__badges">
+              <b><i class="ri-microscope-line"></i> Dermatology view</b>
+              <b><i class="ri-bar-chart-box-line"></i> Confidence scores</b>
+              <b><i class="ri-first-aid-kit-line"></i> Next steps</b>
+            </div>
             <a href="booking.html" class="button main-btn">Записаться</a>
           </div>
 
           <div class="ai-page__panel">
-            <div class="ai-page__preview">
+            <div class="ai-page__panel-head">
+              <div>
+                <span>Step 01</span>
+                <h2>Загрузите фото зоны</h2>
+              </div>
+              <i class="ri-microscope-line"></i>
+            </div>
+            <div class="ai-page__preview" id="ai-dropzone">
               <img id="ai-preview" src="" alt="Загруженное фото" hidden />
               <i class="ri-microscope-line"></i>
+              <div class="ai-page__preview-copy">
+                <strong>Чёткое фото участка кожи</strong>
+                <small>Снимайте без макияжа, фильтров и размытия</small>
+              </div>
             </div>
             <label class="ai-page__upload">
               <input id="ai-photo" type="file" accept="image/*" />
-              <span>Загрузить фото</span>
+              <span><i class="ri-upload-cloud-2-line"></i> Загрузить фото</span>
             </label>
-            <p id="ai-result" class="ai-page__result"></p>
+            <div id="ai-loading" class="ai-page__loading" aria-live="polite">
+              <span></span>
+              <p>AI сравнивает визуальные признаки с дерматологическими паттернами...</p>
+            </div>
+            <div id="ai-result" class="ai-page__result" aria-live="polite"></div>
           </div>
         </div>
       </section>

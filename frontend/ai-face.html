@@ -38,26 +38,46 @@
       </nav>
     </header>
 
-    <main class="ai-page">
+    <main class="ai-page" data-ai-mode="skin">
       <section class="ai-page__section section">
         <div class="ai-page__container container">
           <div class="ai-page__copy">
-            <span>AI skin check</span>
-            <h1>AI анализ состояния кожи</h1>
-            <p>Загрузите фото лица, чтобы подготовить визуальный запрос перед консультацией. Результат не заменяет диагностику врача.</p>
+            <span>AI Skin Analyzer</span>
+            <h1>AI анализатор состояния кожи</h1>
+            <p>Загрузите хорошо освещённое фото лица. Система оценит визуальные признаки кожи и подготовит персональные рекомендации для ухода.</p>
+            <div class="ai-page__badges">
+              <b><i class="ri-shield-check-line"></i> Конфиденциально</b>
+              <b><i class="ri-pulse-line"></i> Эвристический анализ</b>
+              <b><i class="ri-time-line"></i> До 10 секунд</b>
+            </div>
             <a href="booking.html" class="button main-btn">Записаться</a>
           </div>
 
           <div class="ai-page__panel">
-            <div class="ai-page__preview">
+            <div class="ai-page__panel-head">
+              <div>
+                <span>Step 01</span>
+                <h2>Загрузите фото кожи</h2>
+              </div>
+              <i class="ri-scan-2-line"></i>
+            </div>
+            <div class="ai-page__preview" id="ai-dropzone">
               <img id="ai-preview" src="" alt="Загруженное фото" hidden />
               <i class="ri-image-add-line"></i>
+              <div class="ai-page__preview-copy">
+                <strong>Фото лица крупным планом</strong>
+                <small>JPG, PNG или WEBP, без фильтров и сильных теней</small>
+              </div>
             </div>
             <label class="ai-page__upload">
               <input id="ai-photo" type="file" accept="image/*" />
-              <span>Загрузить фото</span>
+              <span><i class="ri-upload-cloud-2-line"></i> Загрузить фото</span>
             </label>
-            <p id="ai-result" class="ai-page__result"></p>
+            <div id="ai-loading" class="ai-page__loading" aria-live="polite">
+              <span></span>
+              <p>AI анализирует тон, текстуру, поры и уровень увлажнения...</p>
+            </div>
+            <div id="ai-result" class="ai-page__result" aria-live="polite"></div>
           </div>
         </div>
       </section>
